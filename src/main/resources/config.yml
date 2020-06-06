@@ -1,0 +1,53 @@
+#
+#
+# .__   __. .___________..______       __  ____    ____  __       ___      
+# |  \ |  | |           ||   _  \     |  | \   \  /   / |  |     /   \     
+# |   \|  | `---|  |----`|  |_)  |    |  |  \   \/   /  |  |    /  ^  \    
+# |  . `  |     |  |     |      /     |  |   \      /   |  |   /  /_\  \   
+# |  |\   |     |  |     |  |\  \----.|  |    \    /    |  |  /  _____  \  
+# |__| \__|     |__|     | _| `._____||__|     \__/     |__| /__/     \__\ 
+#                                                                         
+#
+
+General:
+  # Trivia Interval
+  # How often a trivia question should be asked (in seconds).
+  triviainterval: 300
+  # Answer Time
+  # How long players have to answer a question (in seconds).
+  answertime: 30
+
+Messages:
+  # Announce
+  # Message sent when a new trivia question is activated.
+  # Placeholders:
+  # {seconds} = time to answer.
+  # {question} = question to ask.
+  announce: '&b&lTrivia &8» &fYou have &b{seconds} seconds &fto answer the following question: &b{question}&f.'
+  # Won
+  # Message sent when a player answers correctly.
+  # Placeholders:
+  # {player} = name of the player who won.
+  # {question} = question which was asked.
+  # {answer} = the answer the player gave.
+  won: '&b&lTrivia &8» &b{player} &fanswered the question: &b{question}&f = &b{answer} &fand got a reward.'
+  # Not In Time
+  # Message sent when nobody answers in time.
+  # {question} = question which was asked.
+  # {answer} = the correct answer.
+  notintime: '&b&lTrivia &8» &fNobody answered the question: &b{question}&f in time. The answer was &b{answer}&f.'
+
+# RewardCommands
+# These commands are ran by console when a player answers correctly.
+# Placeholders:
+# {player} = the player that answered correctly.
+RewardCommands:
+  - give {player} diamond 1
+
+# Questions
+# Contains a list of all questions
+# Format:
+# - 'Question|||AnswerOption|||AnswerOption|||AnswerOption|||AnswerOption etc...'
+Questions:
+  - 'In what year was minecraft released?|||2009'
+  - 'Who is the original creator of Minecraft?|||Notch|||Markus Persson'

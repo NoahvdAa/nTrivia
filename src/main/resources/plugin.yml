@@ -1,0 +1,12 @@
+main: me.noahvdaa.ntrivia.nTrivia
+name: nTrivia
+version: 1.0.0
+author: NoahvdAa
+commands:
+  ntrivia:
+   description: Shows plugin info and allows you to relaod it.
+   usage: /ntrivia [reload]
+permissions:
+  ntrivia.admin:
+   description: Allows you to use administrative commands
+   default: op
