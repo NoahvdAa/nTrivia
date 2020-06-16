@@ -59,10 +59,19 @@ public class Events implements Listener {
 
 		// Cancel the message event.
 		e.setCancelled(true);
+
+		// Ms taken. Also shitty number conversion.
+		int ms = Integer
+				.parseInt(Double.toString(System.currentTimeMillis() - nTrivia.getInstance().getTriviaStartTime()).replace(".0", ""));
+		double sec = Math.floor(ms / 1000);
+		double msremaining = ms - (sec * 1000);
+		String timetaken = Double.toString(sec).replace(".0", "") + "." + Double.toString(msremaining).replace(".0", "");
+
 		// Announce the fact that someone won.
 		Bukkit.broadcastMessage(
 				nTrivia.getInstance().getConfigMessage("Messages.won").replace("{player}", e.getPlayer().getName())
-						.replace("{question}", nTrivia.getInstance().getCurrentQuestion()).replace("{answer}", match));
+						.replace("{question}", nTrivia.getInstance().getCurrentQuestion()).replace("{answer}", match)
+						.replace("{timetaken}", timetaken));
 		// End the game.
 		nTrivia.getInstance().endGame();
 		// Run commands.

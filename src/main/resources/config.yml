@@ -30,7 +30,8 @@ Messages:
   # {player} = name of the player who won.
   # {question} = question which was asked.
   # {answer} = the answer the player gave.
-  won: '&b&lTrivia &8» &b{player} &fanswered the question: &b{question}&f = &b{answer} &fand got a reward.'
+  # {timetaken} = the time it took to answer (in seconds).
+  won: '&b&lTrivia &8» &b{player} &fanswered the question: &b{question}&f = &b{answer} &fin &b{timetaken} seconds &fand got a reward.'
   # Not In Time
   # Message sent when nobody answers in time.
   # {question} = question which was asked.

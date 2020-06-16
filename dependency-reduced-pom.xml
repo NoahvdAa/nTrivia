@@ -4,7 +4,7 @@
   <groupId>me.noahvdaa.ntriviva</groupId>
   <artifactId>nTrivia</artifactId>
   <name>nTrivia</name>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <build>
     <plugins>
       <plugin>
@@ -78,8 +78,8 @@
     </dependency>
   </dependencies>
   <properties>
-    <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 </project>
 
