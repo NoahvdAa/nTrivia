@@ -16,6 +16,9 @@ General:
   # Answer Time
   # How long players have to answer a question (in seconds).
   answertime: 30
+  # Min. Players Online
+  # The minimal player count before a travia question is asked.
+  minplayers: 1
 
 Messages:
   # Announce

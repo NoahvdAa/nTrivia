@@ -55,8 +55,8 @@ public class nTrivia extends JavaPlugin {
 						+ (getConfig().getInt("General.triviainterval") * 1000) < System.currentTimeMillis()) {
 					// Its time to run trivia!
 
-					// No players are online, so don't run.
-					if (getServer().getOnlinePlayers().size() == 0)
+					// Are there enough players?
+					if (getServer().getOnlinePlayers().size() >= getConfig().getInt("General.minplayers"))
 						return;
 
 					// Set time of last trivia question.
@@ -172,7 +172,7 @@ public class nTrivia extends JavaPlugin {
 	}
 
 	/*
-	 * Returns a chatcolor parsed string with the key specified or an error if
+	 * Returns a ChatColor parsed string with the key specified or an error if
 	 * nothing can be found.
 	 */
 	public String getConfigMessage(String message) {
