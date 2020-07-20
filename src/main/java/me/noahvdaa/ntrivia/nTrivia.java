@@ -56,7 +56,7 @@ public class nTrivia extends JavaPlugin {
 					// Its time to run trivia!
 
 					// Are there enough players?
-					if (getServer().getOnlinePlayers().size() >= getConfig().getInt("General.minplayers"))
+					if (getServer().getOnlinePlayers().size() < getConfig().getInt("General.minplayers"))
 						return;
 
 					// Set time of last trivia question.

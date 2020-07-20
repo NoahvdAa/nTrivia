@@ -27,6 +27,9 @@ public class nTriviaCommand implements CommandExecutor {
 			// Force start a question.
 			nTrivia.getInstance().forceStartGame();
 			sender.sendMessage(ChatColor.GREEN + "Force-started question!");
+			if(nTrivia.getInstance().getServer().getOnlinePlayers().size() < nTrivia.getInstance().getConfig().getInt("General.minplayers")) {
+				sender.sendMessage(ChatColor.YELLOW + "There are not enough players online to start a trivia question (minplayers in the configuration file). The question will be asked as soon as there are enough players.");
+			}
 			break;
 		case "reload":
 			sender.sendMessage(ChatColor.GOLD + "Reloading...");
