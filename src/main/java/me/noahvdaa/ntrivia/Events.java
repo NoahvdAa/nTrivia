@@ -56,6 +56,7 @@ public class Events implements Listener {
 		// We didn't find the answer, skip.
 		if (!foundAnswer)
 			return;
+		final String matched = match;
 
 		// Cancel the message event.
 		e.setCancelled(true);
@@ -67,24 +68,20 @@ public class Events implements Listener {
 		double msremaining = ms - (sec * 1000);
 		String timetaken = Double.toString(sec).replace(".0", "") + "." + Double.toString(msremaining).replace(".0", "");
 
-		// Announce the fact that someone won.
-		Bukkit.broadcastMessage(
-				nTrivia.getInstance().getConfigMessage("Messages.won").replace("{player}", e.getPlayer().getName())
-						.replace("{question}", nTrivia.getInstance().getCurrentQuestion()).replace("{answer}", match)
-						.replace("{timetaken}", timetaken));
-		// End the game.
-		nTrivia.getInstance().endGame();
-		// Run commands.
-		String name = e.getPlayer().getName();
-		for (String cmd : nTrivia.getInstance().getConfig().getStringList("RewardCommands")) {
-			// Run sync later, to prevent exceptions.
-			nTrivia.getInstance().getServer().getScheduler().runTask(nTrivia.getInstance(), new Runnable() {
-				@Override
-				public void run() {
-					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("{player}", name));
-				}
-			});
-		}
+		nTrivia.getInstance().getServer().getScheduler().runTask(nTrivia.getInstance(), () -> {
+			// Announce the fact that someone won.
+			Bukkit.broadcastMessage(
+					nTrivia.getInstance().getConfigMessage("Messages.won").replace("{player}", e.getPlayer().getName())
+							.replace("{question}", nTrivia.getInstance().getCurrentQuestion()).replace("{answer}", matched)
+							.replace("{timetaken}", timetaken));
+			// End the game.
+			nTrivia.getInstance().endGame();
+			// Run commands.
+			String name = e.getPlayer().getName();
+			for (String cmd : nTrivia.getInstance().getConfig().getStringList("RewardCommands")) {
+				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("{player}", name));
+			}
+		});
 	}
 
 }

@@ -1,6 +1,6 @@
 main: me.noahvdaa.ntrivia.nTrivia
 name: nTrivia
-version: 1.2.1
+version: 1.2.2
 author: NoahvdAa
 commands:
   ntrivia:
